@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_week17/home.dart';
 
 class ColumnPage extends StatelessWidget {
-  const ColumnPage({super.key});
+  final String name;
+  static String id='/column';
+  const ColumnPage({super.key, required this.name});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +14,7 @@ class ColumnPage extends StatelessWidget {
         centerTitle: true,
         title: const Text("Row Widget"),
       ),
-      body: const Center(
+      body: Center(
         child: SizedBox(
           height: 250.0,
           width: 250.0,
@@ -19,11 +22,22 @@ class ColumnPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-            Text('C-1',style: TextStyle(fontSize: 25.0),),
-            Text('C-2',style: TextStyle(fontSize: 25.0),),
-            Text('C-3',style: TextStyle(fontSize: 25.0),),
-            Text('C-4',style: TextStyle(fontSize: 25.0),),
-            Text('C-5',style: TextStyle(fontSize: 25.0),),
+            const Text('C-1',style: TextStyle(fontSize: 25.0),),
+            const Text('C-2',style: TextStyle(fontSize: 25.0),),
+            const Text('C-3',style: TextStyle(fontSize: 25.0),),
+            const Text('C-4',style: TextStyle(fontSize: 25.0),),
+            const Text('C-5',style: TextStyle(fontSize: 25.0),),
+            Text("Welcome $name"),
+            ElevatedButton(
+              onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const HomePage(name: 'หน้าแรก'),
+                ) 
+              );
+            }, 
+            child: const Text("Go to Home"))
           ],),
         ),
       ),
